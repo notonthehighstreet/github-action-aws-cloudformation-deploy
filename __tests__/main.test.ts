@@ -84,7 +84,7 @@ describe('Deploy CloudFormation Stack', () => {
     jest.spyOn(fs, 'readFileSync').mockImplementation((pathInput, encoding) => {
       const { GITHUB_WORKSPACE = '' } = process.env
 
-      if (encoding != 'utf8') {
+      if ((encoding as unknown) != 'utf8') {
         throw new Error(`Wrong encoding ${encoding}`)
       }
 
@@ -101,7 +101,7 @@ describe('Deploy CloudFormation Stack', () => {
         (
           filePath: FileHandle | PathLike,
           options?:
-            | (fs.BaseEncodingOptions & { flag?: fs.OpenMode | undefined })
+            | (fs.ObjectEncodingOptions & { flag?: fs.OpenMode | undefined })
             | BufferEncoding
             | null
             | undefined
