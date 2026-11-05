@@ -122,5 +122,5 @@ outputs:
       e.g. if the stack has a stack output named 'foo', this action will also
       have an output named 'foo'.
 runs:
-  using: "node20"
+  using: "node24"
   main: "dist/index.js"

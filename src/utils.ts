@@ -218,7 +218,7 @@ export async function withRetry<T>(
 
 export function configureProxy(
   proxyServer: string | undefined
-): HttpsProxyAgent | undefined {
+): HttpsProxyAgent<string> | undefined {
   const proxyFromEnv = process.env.HTTP_PROXY || process.env.http_proxy
 
   if (proxyFromEnv || proxyServer) {
